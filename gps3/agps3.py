@@ -156,7 +156,7 @@ class DataStream(object):
         for laundry_list in self.packages.values():
             for item in laundry_list:
                 # Fudge around the namespace collision with GST data package lat/lon being standard deviations
-                if laundry_list == 'GST' and item == 'lat' or 'lon':
+                if laundry_list == 'GST' and ( item == 'lat' or item == 'lon' ):
                     setattr(self, 'sd' + item, 'n/a')
                 setattr(self, item, 'n/a')
 
